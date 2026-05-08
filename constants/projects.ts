@@ -1,0 +1,85 @@
+import type { Project } from "@/types";
+
+export const PROJECTS: Project[] = [
+  {
+    slug: "pathlock",
+    title: "Pathlock",
+    tagline: "Enterprise Identity Governance Platform",
+    description:
+      "A unified access governance and risk platform for large enterprises. Built complex RBAC workflows, fine-grained policy controls, and high-density data dashboards used by compliance and security teams across global organizations.",
+    features: [
+      "Granular Role-Based Access Control with policy hooks",
+      "Real-time risk dashboards and audit timelines",
+      "Federated micro frontend architecture across modules",
+      "React Query powered data layer with optimistic updates",
+      "Accessible component system with light/dark themes",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "React Query",
+      "Tailwind CSS",
+      "Micro Frontend",
+      "RBAC",
+    ],
+    image: "/projects/pathlock.svg",
+    liveUrl: "https://pathlock.com",
+    githubUrl: "https://github.com/rajendra-mohanty",
+    accent: "from-violet-500 to-fuchsia-500",
+  },
+  {
+    slug: "cantabnyc",
+    title: "CantabNYC",
+    tagline: "Alumni Event Management Platform",
+    description:
+      "A modern alumni and event management platform with rich personalization, ticketing, and member networking. Designed an animated, responsive UI with attention to micro-interactions and performance.",
+    features: [
+      "Event scheduling, RSVPs and ticketing flows",
+      "Alumni directory with smart search and filters",
+      "Animated landing experience with Framer Motion",
+      "Optimized images, fonts and Core Web Vitals",
+      "SEO-ready Next.js App Router architecture",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "REST APIs",
+      "Vercel",
+    ],
+    image: "/projects/cantabnyc.svg",
+    liveUrl: "https://cantabnyc.com",
+    githubUrl: "https://github.com/rajendra-mohanty",
+    accent: "from-sky-500 to-cyan-400",
+  },
+  {
+    slug: "task-manager",
+    title: "Task Manager",
+    tagline: "Full-stack MERN productivity app",
+    description:
+      "A clean, opinionated task manager built on the MERN stack. Implements authentication, project boards, drag-and-drop tasks, and a polished React UI with persistent themes.",
+    features: [
+      "JWT authentication with protected routes",
+      "Drag-and-drop boards with status transitions",
+      "Optimistic UI updates and offline-friendly cache",
+      "Mongo + Express REST API with typed contracts",
+      "Themed, accessible component primitives",
+    ],
+    stack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Zustand",
+    ],
+    image: "/projects/task-manager.svg",
+    liveUrl: "https://task-manager-rkm.vercel.app",
+    githubUrl: "https://github.com/rajendra-mohanty/task-manager",
+    accent: "from-emerald-500 to-teal-400",
+  },
+];

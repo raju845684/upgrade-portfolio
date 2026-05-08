@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Pathlock dashboard preview">
+  <defs>
+    <linearGradient id="pl-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="pl-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="pl-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#312e81" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#1e1b4b" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="pl-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#312e81" stroke-opacity="0.4" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#pl-bg)"/>
+  <rect width="1200" height="750" fill="url(#pl-grid)"/>
+  <circle cx="180" cy="120" r="200" fill="#7c3aed" opacity="0.18"/>
+  <circle cx="1050" cy="650" r="220" fill="#22d3ee" opacity="0.14"/>
+
+  <!-- Top bar -->
+  <rect x="40" y="40" width="1120" height="64" rx="14" fill="#1e1b4b" opacity="0.9"/>
+  <circle cx="74" cy="72" r="10" fill="url(#pl-accent)"/>
+  <rect x="96" y="64" width="120" height="16" rx="6" fill="#a5b4fc" opacity="0.8"/>
+  <rect x="900" y="58" width="120" height="28" rx="14" fill="url(#pl-accent)"/>
+  <rect x="1040" y="58" width="80" height="28" rx="14" fill="#312e81"/>
+
+  <!-- Sidebar -->
+  <rect x="40" y="124" width="220" height="586" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+  <rect x="64" y="160" width="172" height="36" rx="10" fill="#7c3aed" opacity="0.4"/>
+  <rect x="64" y="208" width="172" height="32" rx="10" fill="#312e81" opacity="0.7"/>
+  <rect x="64" y="252" width="172" height="32" rx="10" fill="#312e81" opacity="0.7"/>
+  <rect x="64" y="296" width="172" height="32" rx="10" fill="#312e81" opacity="0.7"/>
+  <rect x="64" y="340" width="172" height="32" rx="10" fill="#312e81" opacity="0.7"/>
+  <rect x="64" y="384" width="172" height="32" rx="10" fill="#312e81" opacity="0.7"/>
+
+  <!-- Hero stat cards -->
+  <g>
+    <rect x="284" y="124" width="280" height="140" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+    <rect x="304" y="148" width="80" height="12" rx="6" fill="#a5b4fc" opacity="0.6"/>
+    <text x="304" y="216" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="700" fill="#ffffff">1,284</text>
+    <rect x="304" y="232" width="160" height="10" rx="5" fill="#a78bfa" opacity="0.7"/>
+
+    <rect x="580" y="124" width="280" height="140" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+    <rect x="600" y="148" width="60" height="12" rx="6" fill="#a5b4fc" opacity="0.6"/>
+    <text x="600" y="216" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="700" fill="#ffffff">99.8%</text>
+    <rect x="600" y="232" width="120" height="10" rx="5" fill="#22d3ee" opacity="0.7"/>
+
+    <rect x="876" y="124" width="284" height="140" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+    <rect x="896" y="148" width="100" height="12" rx="6" fill="#a5b4fc" opacity="0.6"/>
+    <text x="896" y="216" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="700" fill="#ffffff">Low</text>
+    <rect x="896" y="232" width="180" height="10" rx="5" fill="#34d399" opacity="0.7"/>
+  </g>
+
+  <!-- Chart card -->
+  <rect x="284" y="284" width="576" height="280" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+  <rect x="304" y="308" width="160" height="14" rx="6" fill="#a5b4fc" opacity="0.7"/>
+  <polyline fill="none" stroke="url(#pl-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+    points="304,500 374,460 444,484 514,420 584,440 654,376 724,398 794,330 840,348"/>
+  <polyline fill="url(#pl-accent)" fill-opacity="0.18" stroke="none"
+    points="304,500 374,460 444,484 514,420 584,440 654,376 724,398 794,330 840,348 840,544 304,544"/>
+  <g stroke="#312e81" stroke-opacity="0.6" stroke-dasharray="3 4">
+    <line x1="304" y1="540" x2="840" y2="540"/>
+    <line x1="304" y1="468" x2="840" y2="468"/>
+    <line x1="304" y1="396" x2="840" y2="396"/>
+  </g>
+
+  <!-- Right widget -->
+  <rect x="876" y="284" width="284" height="280" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+  <rect x="896" y="308" width="120" height="14" rx="6" fill="#a5b4fc" opacity="0.7"/>
+  <g>
+    <rect x="896" y="340" width="244" height="44" rx="10" fill="#312e81" opacity="0.7"/>
+    <rect x="912" y="356" width="80" height="12" rx="6" fill="#a78bfa" opacity="0.8"/>
+    <rect x="1080" y="356" width="44" height="12" rx="6" fill="#22d3ee" opacity="0.7"/>
+    <rect x="896" y="396" width="244" height="44" rx="10" fill="#312e81" opacity="0.7"/>
+    <rect x="912" y="412" width="120" height="12" rx="6" fill="#a78bfa" opacity="0.8"/>
+    <rect x="1080" y="412" width="44" height="12" rx="6" fill="#22d3ee" opacity="0.7"/>
+    <rect x="896" y="452" width="244" height="44" rx="10" fill="#312e81" opacity="0.7"/>
+    <rect x="912" y="468" width="100" height="12" rx="6" fill="#a78bfa" opacity="0.8"/>
+    <rect x="1080" y="468" width="44" height="12" rx="6" fill="#22d3ee" opacity="0.7"/>
+  </g>
+
+  <!-- Bottom table -->
+  <rect x="284" y="584" width="876" height="126" rx="18" fill="url(#pl-card)" stroke="#312e81" stroke-opacity="0.8"/>
+  <rect x="304" y="608" width="80" height="12" rx="6" fill="#a5b4fc" opacity="0.7"/>
+  <g fill="#312e81" opacity="0.7">
+    <rect x="304" y="636" width="836" height="22" rx="6"/>
+    <rect x="304" y="664" width="836" height="22" rx="6"/>
+  </g>
+
+  <text x="56" y="710" font-family="JetBrains Mono, monospace" font-size="14" fill="#a5b4fc" opacity="0.8">pathlock // governance</text>
+</svg>

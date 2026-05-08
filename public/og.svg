@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Rajendra Kumar Mohanty  Senior React.js Frontend Engineer">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f1a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="og-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <pattern id="og-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#312e81" stroke-opacity="0.4" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  <rect width="1200" height="630" fill="url(#og-grid)"/>
+  <circle cx="120" cy="120" r="220" fill="#7c3aed" opacity="0.25"/>
+  <circle cx="1080" cy="540" r="240" fill="#22d3ee" opacity="0.22"/>
+
+  <g font-family="Inter, system-ui, sans-serif" fill="#f8fafc">
+    <text x="80" y="160" font-size="20" letter-spacing="6" fill="#a78bfa" font-weight="600">PORTFOLIO</text>
+    <text x="80" y="260" font-size="64" font-weight="800">Rajendra Kumar</text>
+    <text x="80" y="332" font-size="64" font-weight="800" fill="url(#og-accent)">Mohanty.</text>
+    <text x="80" y="400" font-size="28" font-weight="500" fill="#cbd5f5">Senior React.js Frontend Engineer</text>
+    <text x="80" y="438" font-size="20" font-weight="400" fill="#94a3b8">8+ yrs IT " 6+ yrs React " Pune, India</text>
+  </g>
+
+  <g transform="translate(80 510)" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#cbd5f5">
+    <rect width="120" height="40" rx="20" fill="#1e1b4b" stroke="#a78bfa" stroke-opacity="0.5"/>
+    <text x="60" y="26" text-anchor="middle">React.js</text>
+
+    <g transform="translate(140 0)">
+      <rect width="120" height="40" rx="20" fill="#1e1b4b" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="60" y="26" text-anchor="middle">Next.js</text>
+    </g>
+    <g transform="translate(280 0)">
+      <rect width="140" height="40" rx="20" fill="#1e1b4b" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="70" y="26" text-anchor="middle">TypeScript</text>
+    </g>
+    <g transform="translate(440 0)">
+      <rect width="180" height="40" rx="20" fill="#1e1b4b" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="90" y="26" text-anchor="middle">Micro Frontend</text>
+    </g>
+    <g transform="translate(640 0)">
+      <rect width="120" height="40" rx="20" fill="#1e1b4b" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="60" y="26" text-anchor="middle">RBAC</text>
+    </g>
+  </g>
+
+  <g transform="translate(940 200)">
+    <circle cx="120" cy="120" r="120" fill="#0b0f1a" stroke="url(#og-accent)" stroke-width="2"/>
+    <text x="120" y="140" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="68" font-weight="800" fill="url(#og-accent)">RKM</text>
+  </g>
+</svg>

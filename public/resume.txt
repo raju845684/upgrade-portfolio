@@ -1,0 +1,2 @@
+Replace this file with your actual resume PDF named `resume.pdf` placed in the `public/` folder.
+The Hero section's "Download Resume" button links to `/resume.pdf`.
