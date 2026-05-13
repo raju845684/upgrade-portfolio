@@ -4,12 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { ArrowRight, Loader2, Send } from "lucide-react";
+import { ArrowRight, Send } from "lucide-react";
 import { z } from "zod";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { CONTACT_DETAILS, SOCIAL_LINKS } from "@/constants/personal";
+import { CONTACT_DETAILS, SITE, SOCIAL_LINKS } from "@/constants/personal";
 import {
   fadeInUp,
   slideInLeft,
@@ -24,6 +24,7 @@ const contactSchema = z.object({
   email: z.string().email("Please enter a valid email."),
   subject: z.string().min(3, "A short subject helps a lot."),
   message: z.string().min(10, "Please add a bit more detail (10+ chars)."),
+  _hp: z.string().optional().default(""),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -39,6 +40,14 @@ export function Contact() {
     mode: "onBlur",
   });
 
+  const openMailtoFallback = (values: ContactFormValues) => {
+    const subject = encodeURIComponent(`[Portfolio] ${values.subject}`);
+    const body = encodeURIComponent(
+      `Hi Rajendra,\n\n${values.message}\n\n—\n${values.name}\n${values.email}`,
+    );
+    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+  };
+
   const onSubmit = async (values: ContactFormValues) => {
     const parsed = contactSchema.safeParse(values);
     if (!parsed.success) {
@@ -49,13 +58,58 @@ export function Contact() {
 
     setSubmitting(true);
     try {
-      // TODO: Replace with real email integration (Resend, EmailJS, custom API).
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      toast.success("Message sent! I'll get back to you soon.");
-      reset();
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const data = (await res.json().catch(() => null)) as
+        | { ok: boolean; code?: string; message?: string }
+        | null;
+
+      if (res.ok && data?.ok) {
+        toast.success("Message sent! I'll get back to you within 24 hours.");
+        reset();
+        return;
+      }
+
+      if (res.status === 422 && data?.message) {
+        toast.error(data.message);
+        return;
+      }
+
+      if (
+        data?.code === "not_configured" ||
+        data?.code === "all_providers_failed" ||
+        res.status === 503
+      ) {
+        if (process.env.NODE_ENV !== "production") {
+          console.warn(
+            "[contact] server returned 503 — no email provider configured or all failed.\n" +
+              "Set GMAIL_USER + GMAIL_APP_PASSWORD (or RESEND_API_KEY / WEB3FORMS_ACCESS_KEY) in .env.local and restart `npm run dev`.\n" +
+              "Diagnostic: open http://localhost:3000/api/contact",
+            data,
+          );
+        }
+        toast.message("Opening your mail app", {
+          description:
+            "Direct delivery isn't configured yet — your default email client will open with the message pre-filled.",
+        });
+        openMailtoFallback(values);
+        reset();
+        return;
+      }
+
+      throw new Error(data?.message ?? `Request failed (${res.status})`);
     } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong. Please try again.");
+      console.error("[contact] submit failed", error);
+      toast.error("Something went wrong. Opening your mail app as a backup…");
+      try {
+        openMailtoFallback(values);
+      } catch (mailtoError) {
+        console.error("[contact] mailto fallback failed", mailtoError);
+      }
     } finally {
       setSubmitting(false);
     }
@@ -152,8 +206,24 @@ export function Contact() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="space-y-5 rounded-3xl border border-border/60 bg-card/60 p-8 backdrop-blur-xl"
+            className="relative space-y-5 rounded-3xl border border-border/60 bg-card/60 p-8 backdrop-blur-xl"
           >
+            {/* Honeypot — hidden from humans, catches naive spam bots. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden opacity-0"
+            >
+              <label>
+                Leave this field empty
+                <input
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  {...register("_hp")}
+                />
+              </label>
+            </div>
+
             <div className="grid gap-5 sm:grid-cols-2">
               <FormField
                 label="Your Name"
@@ -218,10 +288,7 @@ export function Contact() {
               </p>
               <Button type="submit" loading={submitting} disabled={submitting}>
                 {submitting ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Sending
-                  </>
+                  "Sending"
                 ) : (
                   <>
                     Send Message

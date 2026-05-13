@@ -13,7 +13,7 @@ export const SITE = {
     "https://docs.google.com/document/d/1ncemAPQrHkXovAOEjHxkHzJLPw-XiXyy/edit?usp=sharing&ouid=107532390210623324668&rtpof=true&sd=true",
   githubUrl: "https://github.com/raju845684",
   linkedinUrl: "https://www.linkedin.com/in/raju845684",
-  url: "https://rajendra-mohanty.dev",
+  url: "https://mohanty-96.vercel.app",
   description:
     "Personal portfolio of Rajendra Kumar Mohanty — Senior React.js Frontend Engineer with 8+ years of IT experience and 6+ years specializing in React.js, Next.js, and enterprise SaaS applications.",
   ogImage: "/og.svg",

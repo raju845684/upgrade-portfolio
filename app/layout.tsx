@@ -7,6 +7,7 @@ import { BackToTop } from "@/components/layout/BackToTop";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { Toaster } from "@/components/layout/Toaster";
 import { AmbientBackground } from "@/components/layout/AmbientBackground";
+import { Chatbot } from "@/components/layout/Chatbot";
 import { SITE } from "@/constants/personal";
 import "./globals.css";
 
@@ -119,6 +120,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <BackToTop />
+          <Chatbot />
           <Toaster />
         </ThemeProvider>
       </body>
