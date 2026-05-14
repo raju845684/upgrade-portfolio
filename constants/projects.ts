@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
       "React Testing Library",
     ],
     image: "/projects/cantabnyc.svg",
-    liveUrl: "https://www.cantabnyc.org",
+    liveUrl: "https://www.cantab.org/",
     accent: "from-sky-500 to-cyan-400",
   },
   {
